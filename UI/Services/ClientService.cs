@@ -37,9 +37,10 @@ namespace UI.Services
         static void DataReceived(object sender, DataReceivedEventArgs e)
         {
             string messageString = Util.GetStringMenssage(e.Data);
-            TCPMessageModel<object> messageObj = Util.JsonUtil.ConvertToObject<TCPMessageModel<object>>(messageString);
+            dynamic messageTcp = Util.JsonUtil.ConvertToObject<TCPMessageModel<object>>(messageString);
 
-            switch (messageObj.ObjectMessage.Type)
+
+            switch (messageTcp.ObjectMessage.Type)
             {
                 case TypeMessage.ReceiveMessage:
                     break;

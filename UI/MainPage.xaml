@@ -9,8 +9,12 @@
         VerticalOptions="Center">
 
         <Entry 
-            x:Name="tbId"
-            Placeholder="Id do colaborador"/>
+            x:Name="tbLogin"
+            Placeholder="Login"/>
+        <Entry 
+            x:Name="tbPassword"
+            Placeholder="Password"
+            IsPassword="True"/>
         <Button 
             x:Name="btnConectar"
             Text="Entrar"

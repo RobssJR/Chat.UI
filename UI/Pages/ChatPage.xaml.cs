@@ -2,6 +2,7 @@ using Core.Enums;
 using Core.Instances;
 using Core.Models;
 using Core.Models.Geral;
+using Core.Services;
 using UI.Components;
 using UI.Services;
 using UI.Singleton;
@@ -38,26 +39,6 @@ public partial class ChatPage : ContentPage
         {
             if (string.IsNullOrEmpty(tbMessage.Text))
                 return;
-
-
-            TCPMessageModel<MessageSendModel> message = new TCPMessageModel<MessageSendModel>()
-            {
-                Time = DateTime.Now,
-                ObjectMessage = new MessageObjectModel<MessageSendModel>()
-                {
-                    Message = new MessageSendModel()
-                    {
-                        IdSend = _myManager.clientModel.Id,
-                        IdReceiving = _myManager.clientModel.Id,
-                        Message = tbMessage.Text
-                    },
-
-                    Type = TypeMessage.SendMessage
-                }
-            };
-
-            ClientService clientService = new ClientService();
-            clientService.Send(message);
 
             stack.Add(new MessageComponent(tbMessage.Text, true));
             tbMessage.Text = string.Empty;

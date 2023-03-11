@@ -1,4 +1,4 @@
-﻿using Core.Models.Client;
+﻿using Core.Infra.Models.Client;
 
 namespace UI.Singleton
 {

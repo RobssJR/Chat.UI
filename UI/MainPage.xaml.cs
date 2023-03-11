@@ -1,4 +1,4 @@
-﻿using Core.Models.Client;
+﻿using Core.Infra.Models.Client;
 using UI.Pages;
 using UI.Services;
 using UI.Singleton;
@@ -27,13 +27,13 @@ namespace UI
         {
             try
             {
-                if (string.IsNullOrEmpty(tbId.Text))
-                    throw new Exception("Preencha o seu Id");
+                if (string.IsNullOrEmpty(tbLogin.Text) || string.IsNullOrEmpty(tbPassword.Text))
+                    throw new Exception("Preencha todos os campos");
                 
-
                 _myManager.clientModel = new ClientModel() 
                 { 
-                    Id = tbId.Text,
+                   Name = tbLogin.Text,
+                   Password = tbPassword.Text,
                 };
 
                 await Navigation.PushAsync(new ChatPage());
