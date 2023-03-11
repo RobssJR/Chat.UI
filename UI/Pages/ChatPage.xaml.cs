@@ -3,8 +3,8 @@ using Core.Instances;
 using Core.Models;
 using Core.Models.Geral;
 using UI.Components;
-using UI.Core;
 using UI.Services;
+using UI.Singleton;
 
 namespace UI.Pages;
 

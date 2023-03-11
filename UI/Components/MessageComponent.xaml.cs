@@ -1,4 +1,4 @@
-using UI.Core;
+using UI.Singleton;
 
 namespace UI.Components;
 

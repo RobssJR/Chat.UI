@@ -1,8 +1,7 @@
-﻿using Core.Models;
-using Core.Models.Client;
-using UI.Core;
+﻿using Core.Models.Client;
 using UI.Pages;
 using UI.Services;
+using UI.Singleton;
 
 namespace UI
 {
