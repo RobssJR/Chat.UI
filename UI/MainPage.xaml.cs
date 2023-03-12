@@ -1,4 +1,5 @@
 ﻿using Core.Infra.Models.Client;
+using Core.Models.Exception;
 using UI.Pages;
 using UI.Services;
 using UI.Singleton;
@@ -18,9 +19,8 @@ namespace UI
                 _myManager = Manager.GetInstance();
                 _clientService = new TCPClientService();
                 _clientService.Start();
-            } catch (Exception ex)
-            {
-            }
+            } catch
+            { throw; }
         }
 
         private async void btnConectar_Clicked(object sender, EventArgs e)
@@ -28,17 +28,17 @@ namespace UI
             try
             {
                 if (string.IsNullOrEmpty(tbLogin.Text) || string.IsNullOrEmpty(tbPassword.Text))
-                    throw new Exception("Preencha todos os campos");
+                    throw new ErrorHandled("Preencha todos os campos");
                 
                 _myManager.clientModel = new ClientModel() 
                 { 
-                   Name = tbLogin.Text,
+                   Email = tbLogin.Text,
                    Password = tbPassword.Text,
                 };
 
                 await Navigation.PushAsync(new ChatPage());
             }
-            catch (Exception ex)
+            catch (ErrorHandled ex)
             {
                 await DisplayAlert("Alert", ex.Message, "OK");
                 return;
@@ -51,7 +51,7 @@ namespace UI
             {
                 await Navigation.PushAsync(new RegisterPage());
             }
-            catch (Exception ex)
+            catch (ErrorHandled ex)
             {
                 await DisplayAlert("", ex.Message, "OK");
                 return;

@@ -17,7 +17,7 @@
                    BorderColor="Transparent">
                 <StackLayout Orientation="Vertical"
                              Spacing="8">
-                    <Label Text="USERNAME"
+                    <Label Text="EMAIL"
                            TextColor="#A8f8f8ff"/>
                     <StackLayout Orientation="Horizontal">
                         <Label FontFamily="FAS" 

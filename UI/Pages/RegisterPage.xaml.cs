@@ -1,5 +1,6 @@
 using Core.Infra.Models.Client;
 using Core.Models;
+using Core.Models.Exception;
 using Core.Services;
 using UI.Services;
 using UI.Singleton;
@@ -36,7 +37,7 @@ public partial class RegisterPage : ContentPage
 
 			_clientService.Send(messageObj);
 
-        } catch (Exception ex)
+        } catch (ErrorHandled ex)
 		{
             await DisplayAlert("", ex.Message, "OK");
         }
@@ -44,7 +45,6 @@ public partial class RegisterPage : ContentPage
 
 	private void ValidateFields()
 	{
-
 		try
 		{
 			bool fieldsEmpty = (
@@ -54,18 +54,18 @@ public partial class RegisterPage : ContentPage
                 string.IsNullOrEmpty(tbSenhaConfirmar.Text));
 
 			if (fieldsEmpty)
-				throw new Exception("Preencha todos os campos");
+				throw new ErrorHandled("Preencha todos os campos");
 
             bool emailValidate = (
 				tbLogin.Text.Contains('@'));
 
             if (fieldsEmpty)
-                throw new Exception("Email não valido");
+                throw new ErrorHandled("Email não valido");
 
             bool passwordEqual = (tbSenha.Text == tbSenhaConfirmar.Text);
 
             if (passwordEqual)
-                throw new Exception("Senhas divergem");
+                throw new ErrorHandled("Senhas divergem");
         }
 		catch 
 		{
