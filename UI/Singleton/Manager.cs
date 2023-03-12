@@ -6,7 +6,9 @@ namespace UI.Singleton
     {
         private static Manager _instance;
         public ClientModel clientModel;
-        private Manager() 
+        public bool logado;
+        public bool error;
+        private Manager()
         {
         
         }

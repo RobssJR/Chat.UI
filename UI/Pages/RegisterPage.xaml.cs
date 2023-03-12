@@ -11,11 +11,14 @@ public partial class RegisterPage : ContentPage
 {
 	private Manager _myManager;
 	private TCPClientService _clientService;
+	private bool response;
 	public RegisterPage()
 	{
 		InitializeComponent();
 		_myManager = Manager.GetInstance();
-	}
+        _clientService = TCPClientService.GetInstance();
+
+    }
 
     private async void btnRegistrar_Clicked(object sender, EventArgs e)
     {
@@ -27,11 +30,11 @@ public partial class RegisterPage : ContentPage
 			{
 				Type = Core.Enums.TypeMessage.Register,
 				Message = new ClientModel()
-					{
-						Name = tbUserName.Text,
-						Email = tbLogin.Text,
-						Password = tbSenha.Text,
-					},
+				{
+					Name = tbUserName.Text,
+					Email = tbLogin.Text,
+					Password = tbSenha.Text,
+				},
 				Time = DateTime.Now,
 			};
 
@@ -64,7 +67,7 @@ public partial class RegisterPage : ContentPage
 
             bool passwordEqual = (tbSenha.Text == tbSenhaConfirmar.Text);
 
-            if (passwordEqual)
+            if (passwordEqual == false)
                 throw new ErrorHandled("Senhas divergem");
         }
 		catch 
