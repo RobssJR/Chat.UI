@@ -44,6 +44,19 @@ namespace UI
                 return;
             }
         }
+
+        private async void btnRegistrar_Clicked(object sender, EventArgs e)
+        {
+            try
+            {
+                await Navigation.PushAsync(new RegisterPage());
+            }
+            catch (Exception ex)
+            {
+                await DisplayAlert("Alert", ex.Message, "OK");
+                return;
+            }
+        }
     }
 
 }

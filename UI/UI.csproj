@@ -49,6 +49,12 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\Fonts\Brands-Regular.otf" />
+	  <None Remove="Resources\Fonts\Free-Regular.otf" />
+	  <None Remove="Resources\Fonts\Free-Solid.otf" />
+	</ItemGroup>
+
+	<ItemGroup>
 	  <Reference Include="Core">
 	    <HintPath>..\..\..\Core\Core\bin\Debug\net6.0\Core.dll</HintPath>
 	  </Reference>
@@ -62,6 +68,9 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Pages\ChatPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\RegisterPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>

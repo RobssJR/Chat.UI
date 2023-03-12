@@ -1,26 +1,71 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:helper="clr-namespace:UI.FontUtil.Helper"
              x:Class="UI.MainPage">
 
-    <VerticalStackLayout
-        Spacing="25"
-        Padding="30,0"
-        VerticalOptions="Center">
-
-        <Entry 
-            x:Name="tbLogin"
-            Placeholder="Login"/>
-        <Entry 
-            x:Name="tbPassword"
-            Placeholder="Password"
-            IsPassword="True"/>
-        <Button 
-            x:Name="btnConectar"
-            Text="Entrar"
-            Clicked="btnConectar_Clicked"
-            BackgroundColor="{StaticResource Pink}"/>
-
-    </VerticalStackLayout>
-
+    <StackLayout Orientation="Vertical"
+                 VerticalOptions="Center"
+                 WidthRequest="500">
+        <Label Text="Bem vindo" 
+               FontSize="25"/>
+        <Label Text="Entre para continuar" 
+               FontSize="14"
+               Margin="0,0,0,15"/>
+        <StackLayout Spacing="15">
+            <Frame BackgroundColor="#5244475a"
+                   BorderColor="Transparent">
+                <StackLayout Orientation="Vertical"
+                             Spacing="8">
+                    <Label Text="USERNAME"
+                           TextColor="#A8f8f8ff"/>
+                    <StackLayout Orientation="Horizontal">
+                        <Label FontFamily="FAS" 
+                               Text="{x:Static helper:Solid.Envelope}" 
+                               FontSize="20"
+                               VerticalOptions="Center"
+                               Margin="0,0,10,0"/>
+                        <Entry x:Name="tbLogin"
+                               MinimumWidthRequest="430"
+                               Keyboard="Email"/>
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
+            <Frame BackgroundColor="#5244475a"
+                   BorderColor="Transparent">
+                <StackLayout Orientation="Vertical"
+                             Spacing="8">
+                    <Label Text="PASSWORD"
+                           TextColor="#A8f8f8ff"/>
+                    <StackLayout Orientation="Horizontal">
+                        <Label FontFamily="FAS" 
+                               Text="{x:Static helper:Solid.Lock}" 
+                               FontSize="20"
+                               VerticalOptions="Center"
+                               Margin="0,0,10,0"/>
+                        <Entry x:Name="tbLogin"
+                               MinimumWidthRequest="430"
+                               IsPassword="True"/>
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
+            
+            <StackLayout Orientation="Horizontal"
+                         HorizontalOptions="Center"
+                         Spacing="15">
+                <Button 
+                    x:Name="btnConectar"
+                    Text="Entrar"
+                    Clicked="btnConectar_Clicked"
+                    BackgroundColor="{StaticResource Foreground}"
+                    TextColor="{StaticResource Comment}"/>
+                <Button 
+                    x:Name="btnRegistrar"
+                    Text="Registrar"
+                    Clicked="btnRegistrar_Clicked"
+                    BackgroundColor="{StaticResource Foreground}"
+                    TextColor="{StaticResource Comment}"/>
+            </StackLayout>
+        </StackLayout>
+    </StackLayout>
 </ContentPage>
