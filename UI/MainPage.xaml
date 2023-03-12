@@ -43,7 +43,7 @@
                                FontSize="20"
                                VerticalOptions="Center"
                                Margin="0,0,10,0"/>
-                        <Entry x:Name="tbLogin"
+                        <Entry x:Name="tbPassword"
                                MinimumWidthRequest="430"
                                IsPassword="True"/>
                     </StackLayout>
