@@ -7,11 +7,11 @@ using SuperSimpleTcp;
 
 namespace UI.Services
 {
-    public class ClientService
+    public class TCPClientService
     {
         public ClientInstance _clientInstance;
 
-        public ClientService()
+        public TCPClientService()
         {
             ConfigureClientModel config = new ConfigureClientModel();
             config.dataReceivedEvent += DataReceived;

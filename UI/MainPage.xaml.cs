@@ -8,7 +8,7 @@ namespace UI
     public partial class MainPage : ContentPage
     {
         private Manager _myManager;
-        private ClientService _clientService;
+        private TCPClientService _clientService;
 
         public MainPage()
         {
@@ -16,7 +16,7 @@ namespace UI
             {
                 InitializeComponent();
                 _myManager = Manager.GetInstance();
-                _clientService = new ClientService();
+                _clientService = new TCPClientService();
                 _clientService.Start();
             } catch (Exception ex)
             {
@@ -53,7 +53,7 @@ namespace UI
             }
             catch (Exception ex)
             {
-                await DisplayAlert("Alert", ex.Message, "OK");
+                await DisplayAlert("", ex.Message, "OK");
                 return;
             }
         }

@@ -1,12 +1,95 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="UI.Pages.RegisterPage"
-             Title="RegisterPage">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+             xmlns:helper="clr-namespace:UI.FontUtil.Helper"
+             x:Class="UI.Pages.RegisterPage">
+    <StackLayout Orientation="Vertical"
+                 WidthRequest="500"
+                 VerticalOptions="Center">
+        <Label Text="Cadastro" 
+               FontSize="Large"
+               Margin="0,20"/>
+        
+        <StackLayout Orientation="Vertical"
+                     Spacing="15">
+            <Frame BackgroundColor="#5244475a"
+                   BorderColor="Transparent">
+                <StackLayout Orientation="Vertical"
+                             Spacing="8">
+                    <Label Text="NOME"
+                           TextColor="#A8f8f8ff"/>
+                    <StackLayout Orientation="Horizontal">
+                        <Label FontFamily="FAS" 
+                               Text="{x:Static helper:Solid.User}" 
+                               FontSize="20"
+                               VerticalOptions="Center"
+                               Margin="0,0,10,0"/>
+                        <Entry x:Name="tbUserName"
+                               MinimumWidthRequest="430"/>
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
+            <Frame BackgroundColor="#5244475a"
+                   BorderColor="Transparent">
+                <StackLayout Orientation="Vertical"
+                             Spacing="8">
+                    <Label Text="EMAIL"
+                           TextColor="#A8f8f8ff"/>
+                    <StackLayout Orientation="Horizontal">
+                        <Label FontFamily="FAS" 
+                               Text="{x:Static helper:Solid.Envelope}" 
+                               FontSize="20"
+                               VerticalOptions="Center"
+                               Margin="0,0,10,0"/>
+                        <Entry x:Name="tbLogin"
+                               MinimumWidthRequest="430"
+                               Keyboard="Email"/>
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
+            <Frame BackgroundColor="#5244475a"
+                   BorderColor="Transparent">
+                <StackLayout Orientation="Vertical"
+                             Spacing="8">
+                    <Label Text="SENHA"
+                           TextColor="#A8f8f8ff"/>
+                    <StackLayout Orientation="Horizontal">
+                        <Label FontFamily="FAS" 
+                               Text="{x:Static helper:Solid.Lock}" 
+                               FontSize="20"
+                               VerticalOptions="Center"
+                               Margin="0,0,10,0"/>
+                        <Entry x:Name="tbSenha"
+                               MinimumWidthRequest="430"
+                               IsPassword="True"/>
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
+            <Frame BackgroundColor="#5244475a"
+                   BorderColor="Transparent">
+                <StackLayout Orientation="Vertical"
+                             Spacing="8">
+                    <Label Text="CONFIRMAR SENHA"
+                           TextColor="#A8f8f8ff"/>
+                    <StackLayout Orientation="Horizontal">
+                        <Label FontFamily="FAS" 
+                               Text="{x:Static helper:Solid.Lock}" 
+                               FontSize="20"
+                               VerticalOptions="Center"
+                               Margin="0,0,10,0"/>
+                        <Entry x:Name="tbSenhaConfirmar"
+                               MinimumWidthRequest="430"
+                               IsPassword="True"/>
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
+            <Button HeightRequest="50"
+                    Margin="100,0"
+                    Text="Registrar"
+                    x:Name="btnRegistrar"
+                    TextColor="{StaticResource Comment}"
+                    Clicked="btnRegistrar_Clicked"/>
+        </StackLayout>
+    </StackLayout>
+
 </ContentPage>
