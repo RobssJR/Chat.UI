@@ -56,10 +56,10 @@
 
 	<ItemGroup>
 	  <Reference Include="Core">
-	    <HintPath>..\..\..\Core\Core\bin\Debug\net6.0\Core.dll</HintPath>
+	    <HintPath>OtherDlls\Core.dll</HintPath>
 	  </Reference>
 	  <Reference Include="SuperSimpleTcp">
-	    <HintPath>..\..\..\Core\Core\bin\Debug\net6.0\SuperSimpleTcp.dll</HintPath>
+	    <HintPath>OtherDlls\SuperSimpleTcp.dll</HintPath>
 	  </Reference>
 	</ItemGroup>
 
