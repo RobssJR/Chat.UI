@@ -20,6 +20,8 @@ namespace UI
                 _myManager = Manager.GetInstance();
                 _clientService = new TCPClientService();
                 _clientService.Start();
+                tbLogin.Text = "adm@gmail.com";
+                tbPassword.Text = "adm";
             } catch
             { throw; }
         }

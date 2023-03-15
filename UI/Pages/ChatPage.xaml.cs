@@ -30,7 +30,19 @@ public partial class ChatPage : ContentPage
             stack.Add(new MessageComponent("Bom dia " + i, false));
         }
 
-        scrollView.Content = stack;
+        scrollViewMessages.Content = stack;
+
+        StackLayout stackA = new StackLayout()
+        {
+            Spacing = 15
+        };
+
+        for (int i = 0; i <= 10; i++)
+        {
+            stackA.Add(new ChatComponent());
+        }
+
+        scrollViewChat.Content = stackA;
     }
 
     private async void Enviar_Clicked(object sender, EventArgs e)
@@ -42,10 +54,11 @@ public partial class ChatPage : ContentPage
 
             stack.Add(new MessageComponent(tbMessage.Text, true));
             tbMessage.Text = string.Empty;
-            await scrollView.ScrollToAsync(stack, ScrollToPosition.End, true);
-        } catch
+            await scrollViewMessages.ScrollToAsync(stack, ScrollToPosition.End, true);
+        } catch (Exception ex)
         {
-            throw;
+            await DisplayAlert("", ex.Message, "OK");
+            return;
         }
     }
 }

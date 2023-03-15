@@ -405,7 +405,7 @@
         <Setter Property="HorizontalOptions" Value="End" />
 
     </Style>
-    
+
     <Style TargetType="Frame" 
            x:Key="StyleMessageSendFrame">
         <Setter Property="HorizontalOptions" Value="End"/>

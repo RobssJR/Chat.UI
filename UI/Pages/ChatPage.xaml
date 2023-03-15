@@ -4,34 +4,66 @@
              xmlns:components="clr-namespace:UI.Components"
              BackgroundColor="#282a36"
              x:Class="UI.Pages.ChatPage">
-
-    <Grid Padding="50" 
-          RowDefinitions="Auto,*,Auto" >
-        <Label Text="Chat 3"
-               FontSize="Large"
-               HorizontalOptions="Center"/>
-        <Frame Grid.Row="1"
-               BackgroundColor="#44475a"
-               VerticalOptions="FillAndExpand">
-            <ScrollView x:Name="scrollView" >
-                
+    
+    <Grid ColumnDefinitions="Auto,*,Auto">
+        <Frame BackgroundColor="Black"
+               BorderColor="Transparent"
+               Grid.Column="0">
+            <ScrollView x:Name="scrollViewChat">
+                <StackLayout VerticalOptions="Center">
+                    <Label Text="OIoi"/>
+                    <Label Text="OIoi"/>
+                    <Label Text="OIoi"/>
+                    <Label Text="OIoi"/>
+                    <Label Text="OIoi"/>
+                    <Label Text="OIoi"/>
+                    <Label Text="OIoi"/>
+                    <Label Text="OIoi"/>
+                    <Label Text="OIoi"/>
+                    <Label Text="OIoi"/>
+                    <Label Text="OIoi"/>
+                    <Label Text="OIoi"/>
+                    <Label Text="OIoi"/>
+                    <Label Text="OIoi"/>
+                    <Label Text="OIoi"/>
+                    <Label Text="OIoi"/>
+                </StackLayout>
             </ScrollView>
         </Frame>
-        
-        <HorizontalStackLayout Grid.Row="2"
-                     HorizontalOptions="Center" >
+        <Grid Padding="50" 
+              RowDefinitions="Auto, *, Auto"
+              RowSpacing="15"
+              Grid.Column="1">
 
-            <Entry Placeholder="Message" 
+            <Frame Grid.Row="1"
                    BackgroundColor="#44475a"
-                   x:Name="tbMessage" />
-            
-            <Button Grid.Row="2"
-                    x:Name="Enviar"
-                    Text="Send messsage" 
-                    BackgroundColor="#44475a"
-                    Clicked="Enviar_Clicked"/>
-        </HorizontalStackLayout>
-        
+                   VerticalOptions="FillAndExpand">
+                <ScrollView x:Name="scrollViewMessages" >
+
+                </ScrollView>
+            </Frame>
+
+            <Grid Grid.Row="2"
+                  ColumnSpacing="15">
+                
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <Entry Grid.Column="0"
+                       Placeholder="Message" 
+                       BackgroundColor="#44475a"
+                       x:Name="tbMessage" />
+
+                <Button Grid.Column="1"
+                        x:Name="Enviar"
+                        Text="Send messsage" 
+                        BackgroundColor="#44475a"
+                        Clicked="Enviar_Clicked"/>
+            </Grid>
+        </Grid>
     </Grid>
+
 
 </ContentPage>
