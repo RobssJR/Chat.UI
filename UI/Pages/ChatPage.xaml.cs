@@ -1,10 +1,5 @@
-using Core.Enums;
 using Core.Instances;
-using Core.Models;
-using Core.Models.Geral;
-using Core.Services;
 using UI.Components;
-using UI.Services;
 using UI.Singleton;
 
 namespace UI.Pages;
@@ -60,5 +55,10 @@ public partial class ChatPage : ContentPage
             await DisplayAlert("", ex.Message, "OK");
             return;
         }
+    }
+
+    private async void btnCreateChat_Clicked(object sender, EventArgs e)
+    {
+        
     }
 }

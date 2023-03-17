@@ -3,15 +3,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="UI.Components.ChatComponent">
 
-    <Frame x:Name="frmMain"
-           Margin="10"
+    <Button x:Name="frmMain"
+           Margin="0,5"
            BorderColor="Black"
-           CornerRadius="50"
-           HeightRequest="60"
-           WidthRequest="60"
-           IsClippedToBounds="True"
-           HorizontalOptions="Center"
-           VerticalOptions="Center">
-        <Label Text="Oioi"/>
-    </Frame>
+           CornerRadius="20"
+           HeightRequest="57"
+           WidthRequest="57">
+    </Button>
 </ContentView>

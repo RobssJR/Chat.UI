@@ -1,4 +1,5 @@
-﻿namespace UI;
+﻿
+namespace UI;
 
 public static class MauiProgram
 {

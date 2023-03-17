@@ -58,7 +58,6 @@ namespace UI
             }
             catch (ErrorHandled ex)
             {
-                await DisplayAlert("", ex.Message, "OK");
                 return;
             }
         }

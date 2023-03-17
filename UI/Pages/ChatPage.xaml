@@ -2,45 +2,43 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:components="clr-namespace:UI.Components"
+             xmlns:helper="clr-namespace:UI.FontUtil.Helper"
              BackgroundColor="#282a36"
              x:Class="UI.Pages.ChatPage">
     
     <Grid ColumnDefinitions="Auto,*,Auto">
-        <Frame BackgroundColor="Black"
+        <Frame BackgroundColor="#121319"
                BorderColor="Transparent"
-               Grid.Column="0">
-            <ScrollView x:Name="scrollViewChat">
-                <StackLayout VerticalOptions="Center">
-                    <Label Text="OIoi"/>
-                    <Label Text="OIoi"/>
-                    <Label Text="OIoi"/>
-                    <Label Text="OIoi"/>
-                    <Label Text="OIoi"/>
-                    <Label Text="OIoi"/>
-                    <Label Text="OIoi"/>
-                    <Label Text="OIoi"/>
-                    <Label Text="OIoi"/>
-                    <Label Text="OIoi"/>
-                    <Label Text="OIoi"/>
-                    <Label Text="OIoi"/>
-                    <Label Text="OIoi"/>
-                    <Label Text="OIoi"/>
-                    <Label Text="OIoi"/>
-                    <Label Text="OIoi"/>
-                </StackLayout>
-            </ScrollView>
+               Grid.Column="0"
+               WidthRequest="150"
+               CornerRadius="0">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition Height="60"/>
+                </Grid.RowDefinitions>
+                <ScrollView x:Name="scrollViewChat" Grid.Row="0"/>
+
+                <Frame Grid.Row="1" 
+                       BackgroundColor="#282a36"
+                       Padding="5">
+                    <Button x:Name="btnCreateChat"
+                            FontFamily="FAB" 
+                            Text="{x:Static helper:Brands.Plus}"
+                            BackgroundColor="#44475a"
+                            Clicked="btnCreateChat_Clicked"/>
+                </Frame>
+            </Grid>
+            
         </Frame>
         <Grid Padding="50" 
               RowDefinitions="Auto, *, Auto"
               RowSpacing="15"
               Grid.Column="1">
-
             <Frame Grid.Row="1"
                    BackgroundColor="#44475a"
                    VerticalOptions="FillAndExpand">
-                <ScrollView x:Name="scrollViewMessages" >
-
-                </ScrollView>
+                <ScrollView x:Name="scrollViewMessages" />
             </Frame>
 
             <Grid Grid.Row="2"
