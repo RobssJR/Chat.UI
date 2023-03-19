@@ -1,4 +1,5 @@
 using Core.Infra.Models.Client;
+using Core.Instances;
 using Core.Models;
 using Core.Models.Exception;
 using Core.Services;
@@ -10,13 +11,13 @@ namespace UI.Pages;
 public partial class RegisterPage : ContentPage
 {
 	private Manager _myManager;
-	private TCPClientService _clientService;
+	private ClientInstance _clientService;
 	private bool response;
 	public RegisterPage()
 	{
 		InitializeComponent();
 		_myManager = Manager.GetInstance();
-        _clientService = TCPClientService.GetInstance();
+        _clientService = ClientInstance.GetInstance();
 
     }
 

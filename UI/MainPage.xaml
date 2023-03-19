@@ -58,18 +58,16 @@
                 <StackLayout Orientation="Horizontal"
                         HorizontalOptions="Center"
                         Spacing="15">
-                    <Button 
-                x:Name="btnConectar"
-                Text="Entrar"
-                Clicked="btnConectar_Clicked"
-                BackgroundColor="{StaticResource Foreground}"
-                TextColor="{StaticResource Comment}"/>
-                    <Button 
-                x:Name="btnRegistrar"
-                Text="Registrar"
-                Clicked="btnRegistrar_Clicked"
-                BackgroundColor="{StaticResource Foreground}"
-                TextColor="{StaticResource Comment}"/>
+                    <Button x:Name="btnConectar"
+                            Text="Entrar"
+                            Clicked="btnConectar_Clicked"
+                            BackgroundColor="{StaticResource Foreground}"
+                            TextColor="{StaticResource Comment}"/>
+                    <Button x:Name="btnRegistrar"
+                            Text="Registrar"
+                            Clicked="btnRegistrar_Clicked"
+                            BackgroundColor="{StaticResource Foreground}"
+                            TextColor="{StaticResource Comment}"/>
                 </StackLayout>
             </StackLayout>
         </StackLayout>

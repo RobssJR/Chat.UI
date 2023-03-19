@@ -1,4 +1,5 @@
 ﻿using Core.Infra.Models.Client;
+using Core.Instances;
 using Core.Models;
 using Core.Models.Exception;
 using UI.Pages;
@@ -10,7 +11,7 @@ namespace UI
     public partial class MainPage : ContentPage
     {
         private Manager _myManager;
-        private TCPClientService _clientService;
+        private ClientInstance _clientService;
 
         public MainPage()
         {
@@ -18,7 +19,7 @@ namespace UI
             {
                 InitializeComponent();
                 _myManager = Manager.GetInstance();
-                _clientService = new TCPClientService();
+                _clientService = ClientInstance.GetInstance();
                 _clientService.Start();
                 tbLogin.Text = "adm@gmail.com";
                 tbPassword.Text = "adm";
@@ -36,14 +37,16 @@ namespace UI
                 if (string.IsNullOrEmpty(tbLogin.Text) || string.IsNullOrEmpty(tbPassword.Text))
                     throw new ErrorHandled("Preencha todos os campos");
 
+                ClientModel clientLogin = new ClientModel()
+                {
+                    Email = tbLogin.Text,
+                    Password = tbPassword.Text,
+                };
+
                 TCPMessageModel<ClientModel> messageObj = new TCPMessageModel<ClientModel>()
                 {
                     Type = Core.Enums.TypeMessage.Login,
-                    Message = new ClientModel()
-                    {
-                        Email = tbLogin.Text,
-                        Password = tbPassword.Text,
-                    },
+                    Message = clientLogin,
                     Time = DateTime.Now,
                 };
 
@@ -58,6 +61,7 @@ namespace UI
             }
             catch (ErrorHandled ex)
             {
+                await DisplayAlert("", ex.Message, "OK");
                 return;
             }
         }

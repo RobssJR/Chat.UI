@@ -1,12 +1,41 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:helper="clr-namespace:UI.FontUtil.Helper"
              x:Class="UI.Pages.ChatCreatePage">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+    
+    <Frame WidthRequest="500"
+           VerticalOptions="Center"
+           BackgroundColor="#216272a4"
+           BorderColor="Transparent"
+           Padding="40">
+        <StackLayout Orientation="Vertical"
+                     Spacing="15"
+                     HeightRequest="150">
+            <Frame BackgroundColor="#5244475a"
+               BorderColor="Transparent">
+                <StackLayout Orientation="Vertical"
+                             Spacing="8">
+                    <Label Text="NOME"
+                           TextColor="#A8f8f8ff"/>
+                    <StackLayout Orientation="Horizontal">
+                        <Label FontFamily="FAS" 
+                               Text="{x:Static helper:Solid.Tag}" 
+                               FontSize="20"
+                               VerticalOptions="Center"
+                               Margin="0,0,10,0"/>
+                        <Entry x:Name="tbNome"
+                               MinimumWidthRequest="350"
+                               Keyboard="Email"/>
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
+
+            <Button x:Name="btnCadastrar"
+                            Text="Registrar"
+                            Clicked="btnCadastrar_Clicked"
+                            BackgroundColor="{StaticResource Foreground}"
+                            TextColor="{StaticResource Comment}"/>
+        </StackLayout>
+    </Frame>
 </ContentPage>

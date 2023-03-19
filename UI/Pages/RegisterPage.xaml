@@ -26,7 +26,7 @@
                                VerticalOptions="Center"
                                Margin="0,0,10,0"/>
                             <Entry x:Name="tbUserName"
-                               MinimumWidthRequest="430"/>
+                                   MinimumWidthRequest="390"/>
                         </StackLayout>
                     </StackLayout>
                 </Frame>
@@ -43,8 +43,8 @@
                                VerticalOptions="Center"
                                Margin="0,0,10,0"/>
                             <Entry x:Name="tbLogin"
-                               MinimumWidthRequest="430"
-                               Keyboard="Email"/>
+                                   MinimumWidthRequest="390"
+                                   Keyboard="Email"/>
                         </StackLayout>
                     </StackLayout>
                 </Frame>
@@ -61,8 +61,8 @@
                                VerticalOptions="Center"
                                Margin="0,0,10,0"/>
                             <Entry x:Name="tbSenha"
-                               MinimumWidthRequest="430"
-                               IsPassword="True"/>
+                                   MinimumWidthRequest="390"
+                                   IsPassword="True"/>
                         </StackLayout>
                     </StackLayout>
                 </Frame>
@@ -79,8 +79,8 @@
                                VerticalOptions="Center"
                                Margin="0,0,10,0"/>
                             <Entry x:Name="tbSenhaConfirmar"
-                               MinimumWidthRequest="430"
-                               IsPassword="True"/>
+                                   MinimumWidthRequest="390"
+                                   IsPassword="True"/>
                         </StackLayout>
                     </StackLayout>
                 </Frame>

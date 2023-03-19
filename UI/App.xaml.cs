@@ -1,4 +1,4 @@
-﻿using UI.Singleton;
+﻿using UI.Services;
 
 namespace UI;
 
@@ -8,9 +8,7 @@ public partial class App : Application
 	{
 		InitializeComponent();
 
-		Manager manager = Manager.GetInstance();
-
 		MainPage = new AppShell();
-		
-	}
+		var config = new TCPClientConfig();
+    }
 }

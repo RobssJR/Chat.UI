@@ -10,13 +10,12 @@ using UI.Singleton;
 
 namespace UI.Services
 {
-    public class TCPClientService
+    public class TCPClientConfig
     {
         public ClientInstance _clientInstance;
-        private static Manager _myManager;
-        private static TCPClientService _instance;
+        private Manager _myManager;
 
-        public TCPClientService()
+        public TCPClientConfig()
         {
             _myManager = Manager.GetInstance();
 
@@ -28,27 +27,7 @@ namespace UI.Services
             _clientInstance.Configure(config);
         }
 
-        public static TCPClientService GetInstance()
-        {
-            if (_instance == null)
-                _instance = new TCPClientService();
-
-            return _instance;
-        }
-
-        public void Start()
-        {
-            _clientInstance.Start();
-        }
-
-        public void Send<T>(TCPMessageModel<T> messageObj)
-        {
-            string messsageJson = Util.JsonUtil.ConvertToJson(messageObj);
-
-            _clientInstance.client.Send(messsageJson);
-        }
-
-        static void DataReceived(object sender, DataReceivedEventArgs e)
+        private void DataReceived(object sender, DataReceivedEventArgs e)
         {
             string messageString = Util.GetStringMenssage(e.Data);
             dynamic messageTcp = Util.JsonUtil.ConvertToObject<TCPMessageModel<object>>(messageString);
