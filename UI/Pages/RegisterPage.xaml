@@ -7,90 +7,92 @@
            VerticalOptions="Center"
            BackgroundColor="#216272a4"
            BorderColor="Transparent">
-        <StackLayout>
-            <Label Text="Cadastro" 
+        <ScrollView>
+            <StackLayout>
+                <Label Text="Cadastro" 
                    FontSize="Large"
                    Margin="0,20"/>
-            <StackLayout Orientation="Vertical"
+                <StackLayout Orientation="Vertical"
                      Spacing="15">
-                <Frame BackgroundColor="#5244475a"
+                    <Frame BackgroundColor="#5244475a"
                    BorderColor="Transparent">
-                    <StackLayout Orientation="Vertical"
+                        <StackLayout Orientation="Vertical"
                              Spacing="8">
-                        <Label Text="NOME"
+                            <Label Text="NOME"
                            TextColor="#A8f8f8ff"/>
-                        <StackLayout Orientation="Horizontal">
-                            <Label FontFamily="FAS" 
-                               Text="{x:Static helper:Solid.User}" 
+                            <StackLayout Orientation="Horizontal">
+                                <Label FontFamily="FAS" 
+                               Text="🏷️" 
                                FontSize="20"
                                VerticalOptions="Center"
                                Margin="0,0,10,0"/>
-                            <Entry x:Name="tbUserName"
+                                <Entry x:Name="tbUserName"
                                    MinimumWidthRequest="390"/>
+                            </StackLayout>
                         </StackLayout>
-                    </StackLayout>
-                </Frame>
-                <Frame BackgroundColor="#5244475a"
+                    </Frame>
+                    <Frame BackgroundColor="#5244475a"
                    BorderColor="Transparent">
-                    <StackLayout Orientation="Vertical"
+                        <StackLayout Orientation="Vertical"
                              Spacing="8">
-                        <Label Text="EMAIL"
+                            <Label Text="EMAIL"
                            TextColor="#A8f8f8ff"/>
-                        <StackLayout Orientation="Horizontal">
-                            <Label FontFamily="FAS" 
+                            <StackLayout Orientation="Horizontal">
+                                <Label FontFamily="FAS" 
                                Text="{x:Static helper:Solid.Envelope}" 
                                FontSize="20"
                                VerticalOptions="Center"
                                Margin="0,0,10,0"/>
-                            <Entry x:Name="tbLogin"
+                                <Entry x:Name="tbLogin"
                                    MinimumWidthRequest="390"
                                    Keyboard="Email"/>
+                            </StackLayout>
                         </StackLayout>
-                    </StackLayout>
-                </Frame>
-                <Frame BackgroundColor="#5244475a"
+                    </Frame>
+                    <Frame BackgroundColor="#5244475a"
                    BorderColor="Transparent">
-                    <StackLayout Orientation="Vertical"
+                        <StackLayout Orientation="Vertical"
                              Spacing="8">
-                        <Label Text="SENHA"
+                            <Label Text="SENHA"
                            TextColor="#A8f8f8ff"/>
-                        <StackLayout Orientation="Horizontal">
-                            <Label FontFamily="FAS" 
-                               Text="{x:Static helper:Solid.Lock}" 
+                            <StackLayout Orientation="Horizontal">
+                                <Label FontFamily="FAS" 
+                               Text="🔒" 
                                FontSize="20"
                                VerticalOptions="Center"
                                Margin="0,0,10,0"/>
-                            <Entry x:Name="tbSenha"
+                                <Entry x:Name="tbSenha"
                                    MinimumWidthRequest="390"
                                    IsPassword="True"/>
+                            </StackLayout>
                         </StackLayout>
-                    </StackLayout>
-                </Frame>
-                <Frame BackgroundColor="#5244475a"
+                    </Frame>
+                    <Frame BackgroundColor="#5244475a"
                    BorderColor="Transparent">
-                    <StackLayout Orientation="Vertical"
+                        <StackLayout Orientation="Vertical"
                              Spacing="8">
-                        <Label Text="CONFIRMAR SENHA"
+                            <Label Text="CONFIRMAR SENHA"
                            TextColor="#A8f8f8ff"/>
-                        <StackLayout Orientation="Horizontal">
-                            <Label FontFamily="FAS" 
-                               Text="{x:Static helper:Solid.Lock}" 
+                            <StackLayout Orientation="Horizontal">
+                                <Label FontFamily="FAS" 
+                               Text="🔒" 
                                FontSize="20"
                                VerticalOptions="Center"
                                Margin="0,0,10,0"/>
-                            <Entry x:Name="tbSenhaConfirmar"
+                                <Entry x:Name="tbSenhaConfirmar"
                                    MinimumWidthRequest="390"
                                    IsPassword="True"/>
+                            </StackLayout>
                         </StackLayout>
-                    </StackLayout>
-                </Frame>
-                <Button HeightRequest="50"
+                    </Frame>
+                    <Button HeightRequest="50"
                     Margin="100,0"
                     Text="Registrar"
                     x:Name="btnRegistrar"
                     TextColor="{StaticResource Comment}"
                     Clicked="btnRegistrar_Clicked"/>
+                </StackLayout>
             </StackLayout>
-        </StackLayout>
+        </ScrollView>
     </Frame>
 </ContentPage>

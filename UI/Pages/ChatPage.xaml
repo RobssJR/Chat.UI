@@ -12,6 +12,7 @@
                Grid.Column="0"
                WidthRequest="150"
                CornerRadius="0">
+            
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition/>
@@ -24,20 +25,36 @@
                        Padding="5">
                     <Button x:Name="btnCreateChat"
                             FontFamily="FAB" 
-                            Text="{x:Static helper:Brands.Plus}"
+                            Text="➕"
                             BackgroundColor="#44475a"
                             Clicked="btnCreateChat_Clicked"/>
                 </Frame>
             </Grid>
-            
         </Frame>
+
         <Grid Padding="50" 
               RowDefinitions="Auto, *, Auto"
               RowSpacing="15"
               Grid.Column="1">
+
+            <Label Text="Bom dia"
+                   FontSize="30"
+                   x:Name="tbNameChat"/>
+
+            <Button x:Name="btnAddClient"
+                    BackgroundColor="#44475a"
+                    CornerRadius="20"
+                    HeightRequest="57"
+                    WidthRequest="57"
+                    HorizontalOptions="EndAndExpand"
+                    Clicked="btnAddClient_Clicked"
+                    Text="📃">
+            </Button>
+
             <Frame Grid.Row="1"
                    BackgroundColor="#44475a"
-                   VerticalOptions="FillAndExpand">
+                   VerticalOptions="FillAndExpand"
+                   BorderColor="Transparent">
                 <ScrollView x:Name="scrollViewMessages" />
             </Frame>
 

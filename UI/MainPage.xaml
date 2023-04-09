@@ -43,7 +43,7 @@
                         TextColor="#A8f8f8ff"/>
                         <StackLayout Orientation="Horizontal">
                             <Label FontFamily="FAS" 
-                            Text="{x:Static helper:Solid.Lock}" 
+                            Text="🔒" 
                             FontSize="20"
                             VerticalOptions="Center"
                             Margin="0,0,10,0"/>

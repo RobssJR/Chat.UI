@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="UI.Pages.ChatUserAddPage"
+             xmlns:helper="clr-namespace:UI.FontUtil.Helper"
+             Title="ChatUserAddPage">
+    <Frame WidthRequest="500"
+           VerticalOptions="Center"
+           BackgroundColor="#216272a4"
+           BorderColor="Transparent"
+           HeightRequest="400"
+           Padding="40">
+        <StackLayout Orientation="Vertical"
+                     Spacing="15"
+                     HeightRequest="350">
+            <Frame BackgroundColor="#5244475a"
+                   BorderColor="Transparent"
+                   HeightRequest="260">
+                <StackLayout Orientation="Vertical"
+                             Spacing="8">
+                    <Label Text="USUÁRIOS"
+                           TextColor="#A8f8f8ff"
+                           Margin="0,0,0,5"/>
+                    <ListView x:Name="lvUsuarios">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <StackLayout Orientation="Horizontal"
+                                                 VerticalOptions="Center">
+                                        <Label Text="{Binding Name}"
+                                               FontSize="20"/>
+                                    </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+            </Frame>
+            
+            <Grid Grid.Row="2"
+                  ColumnSpacing="15">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <Entry Grid.Column="0"
+                       Placeholder="Email" 
+                       BackgroundColor="#44475a"
+                       x:Name="tbEmail" />
+
+                <Button Grid.Column="1"
+                        x:Name="btnAddUser"
+                        Text="Add" 
+                        BackgroundColor="#44475a"
+                        Clicked="btnAddUser_Clicked"/>
+            </Grid>
+
+        </StackLayout>
+    </Frame>
+
+</ContentPage>

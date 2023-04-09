@@ -31,9 +31,6 @@ namespace UI
         {
             try
             {
-                _myManager.logado = false;
-                _myManager.error = false;
-
                 if (string.IsNullOrEmpty(tbLogin.Text) || string.IsNullOrEmpty(tbPassword.Text))
                     throw new ErrorHandled("Preencha todos os campos");
 
@@ -52,7 +49,7 @@ namespace UI
 
                 _clientService.Send(messageObj);
 
-                bool result = await AwaitLogin();
+                bool result = await ClientUtil.AwaitResponse();
 
                 if (result == false)
                     throw new ErrorHandled("Email e senha estão incorretos");
@@ -64,23 +61,6 @@ namespace UI
                 await DisplayAlert("", ex.Message, "OK");
                 return;
             }
-        }
-
-        private async Task<bool> AwaitLogin()
-        {
-            try
-            {
-                while (_myManager.logado == false && _myManager.error == false) { }
-
-                if (_myManager.error)
-                    throw new ErrorHandled("Erro ao logar");
-
-                return true;
-            } catch (ErrorHandled ex)
-            {
-                return false;
-            }
-            
         }
 
         private async void btnRegistrar_Clicked(object sender, EventArgs e)

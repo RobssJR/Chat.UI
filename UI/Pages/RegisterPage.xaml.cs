@@ -41,6 +41,13 @@ public partial class RegisterPage : ContentPage
 
 			_clientService.Send(messageObj);
 
+			var result = ClientUtil.AwaitResponse();
+
+			if (result.Result == false)
+				throw new ErrorHandled("Não foi possivel fazer o login");
+
+            await DisplayAlert("", "Logado", "OK");
+
         } catch (ErrorHandled ex)
 		{
             await DisplayAlert("", ex.Message, "OK");

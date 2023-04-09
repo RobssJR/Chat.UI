@@ -4,12 +4,13 @@
              x:Class="UI.Components.MessageComponent">
     
     <StackLayout x:Name="stackTextMessage" 
-                    Style="{DynamicResource StyleMessageReceived}"
+                 Style="{DynamicResource StyleMessageReceived}"
                 >
         <Frame x:Name="frmTextMessage" 
-                Style="{DynamicResource StyleMessageReceivedFrame}">
+               Style="{DynamicResource StyleMessageReceivedFrame}"
+               BorderColor="Transparent">
             <Label x:Name="tbTextMessage"
-                    Text="AAAAAAA"/>
+                   Text="AAAAAAA"/>
         </Frame>
     </StackLayout>
 </ContentView>

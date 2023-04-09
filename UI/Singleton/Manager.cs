@@ -1,4 +1,5 @@
-﻿using Core.Infra.Models.Client;
+﻿using Core.Infra.Models.Chat;
+using Core.Infra.Models.Client;
 
 namespace UI.Singleton
 {
@@ -6,8 +7,14 @@ namespace UI.Singleton
     {
         private static Manager _instance;
         public ClientModel clientModel;
-        public bool logado;
+        public bool sucesso;
         public bool error;
+        public List<ChatModel> Chats;
+        public ChatModel chatSelecionado;
+
+        public event RefreshEvent Refresh;
+        public delegate void RefreshEvent(ChatModel chat);
+
         private Manager()
         {
         
@@ -19,6 +26,11 @@ namespace UI.Singleton
                 _instance = new Manager();
 
             return _instance;
+        }
+
+        public void RefreshExec(ChatModel chat)
+        {
+            Refresh(chat);
         }
     }
 }

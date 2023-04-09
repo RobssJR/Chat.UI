@@ -1,4 +1,5 @@
 ﻿using Core.Enums;
+using Core.Infra.Models.Chat;
 using Core.Infra.Models.Client;
 using Core.Instances;
 using Core.Models;
@@ -38,15 +39,29 @@ namespace UI.Services
                     break;
                 case TypeMessage.Register:
                     messageTcp = Util.JsonUtil.ConvertToObject<TCPMessageModel<SuccessModel>>(messageString);
+                    _myManager.sucesso = true;
                     break;
                 case TypeMessage.Login:
                     messageTcp = Util.JsonUtil.ConvertToObject<TCPMessageModel<ClientModel>>(messageString);
-
                     _myManager.clientModel = messageTcp.Message;
-                    _myManager.logado = true;
+                    _myManager.sucesso = true;
                     break;
                 case TypeMessage.Erro:
                     _myManager.error = true;
+                    break;
+                case TypeMessage.GetChats:
+                    messageTcp = Util.JsonUtil.ConvertToObject<TCPMessageModel<List<ChatModel>>>(messageString);
+                    _myManager.Chats = messageTcp.Message;
+                    _myManager.sucesso = true;
+                    break;
+                case TypeMessage.RefreshChat:
+                    messageTcp = Util.JsonUtil.ConvertToObject<TCPMessageModel<ChatModel>>(messageString);
+                    _myManager.RefreshExec(messageTcp.Message);
+                    break;
+                case TypeMessage.GetChat:
+                    messageTcp = Util.JsonUtil.ConvertToObject<TCPMessageModel<ChatModel>>(messageString);
+                    _myManager.chatSelecionado = messageTcp.Message;
+                    _myManager.sucesso = true;
                     break;
                 default:
                     break;

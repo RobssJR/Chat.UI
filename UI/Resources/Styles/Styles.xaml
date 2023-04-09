@@ -403,7 +403,6 @@
     <Style TargetType="{x:Type components:MessageComponent}" 
            x:Key="StyleMessageSend" >
         <Setter Property="HorizontalOptions" Value="End" />
-
     </Style>
 
     <Style TargetType="Frame" 

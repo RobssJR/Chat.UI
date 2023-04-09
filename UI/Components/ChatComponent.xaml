@@ -8,6 +8,7 @@
            BorderColor="Black"
            CornerRadius="20"
            HeightRequest="57"
+           Clicked="selecionarChat"
            WidthRequest="57">
     </Button>
 </ContentView>
