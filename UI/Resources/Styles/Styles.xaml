@@ -392,6 +392,7 @@
     <Style TargetType="{x:Type components:MessageComponent}" 
            x:Key="StyleMessageReceived" >
         <Setter Property="HorizontalOptions" Value="Start" />
+        <Setter Property="MaximumWidthRequest" Value="500" />
     </Style>
     
     <Style TargetType="Frame" 
@@ -403,6 +404,7 @@
     <Style TargetType="{x:Type components:MessageComponent}" 
            x:Key="StyleMessageSend" >
         <Setter Property="HorizontalOptions" Value="End" />
+        <Setter Property="MaximumWidthRequest" Value="500" />
     </Style>
 
     <Style TargetType="Frame" 

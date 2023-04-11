@@ -37,7 +37,7 @@
               RowSpacing="15"
               Grid.Column="1">
 
-            <Label Text="Bom dia"
+            <Label Text=""
                    FontSize="30"
                    x:Name="tbNameChat"/>
 

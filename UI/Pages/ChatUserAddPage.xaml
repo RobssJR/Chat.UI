@@ -8,11 +8,15 @@
            VerticalOptions="Center"
            BackgroundColor="#216272a4"
            BorderColor="Transparent"
-           HeightRequest="400"
+           HeightRequest="500"
            Padding="40">
         <StackLayout Orientation="Vertical"
                      Spacing="15"
                      HeightRequest="350">
+            <Label x:Name="lbTitle"
+                   Text="" 
+                   HorizontalOptions="Center"
+                   FontSize="20"/>
             <Frame BackgroundColor="#5244475a"
                    BorderColor="Transparent"
                    HeightRequest="260">
@@ -24,12 +28,10 @@
                     <ListView x:Name="lvUsuarios">
                         <ListView.ItemTemplate>
                             <DataTemplate>
-                                <ViewCell>
-                                    <StackLayout Orientation="Horizontal"
-                                                 VerticalOptions="Center">
-                                        <Label Text="{Binding Name}"
-                                               FontSize="20"/>
-                                    </StackLayout>
+                                <ViewCell Height="40">
+                                    <Label Text="{Binding Name}"
+                                           FontSize="20"
+                                           VerticalOptions="Center"/>
                                 </ViewCell>
                             </DataTemplate>
                         </ListView.ItemTemplate>
@@ -43,6 +45,7 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition />
                     <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
 
                 <Entry Grid.Column="0"
@@ -55,6 +58,12 @@
                         Text="Add" 
                         BackgroundColor="#44475a"
                         Clicked="btnAddUser_Clicked"/>
+
+                <Button Grid.Column="2"
+                        x:Name="btnRemoveUser"
+                        Text="Remove" 
+                        BackgroundColor="#44475a"
+                        Clicked="btnRemoveUser_Clicked"/>
             </Grid>
 
         </StackLayout>

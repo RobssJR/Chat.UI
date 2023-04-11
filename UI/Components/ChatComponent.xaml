@@ -4,11 +4,11 @@
              x:Class="UI.Components.ChatComponent">
 
     <Button x:Name="frmMain"
-           Margin="0,5"
-           BorderColor="Black"
-           CornerRadius="20"
-           HeightRequest="57"
-           Clicked="selecionarChat"
-           WidthRequest="57">
+            Margin="0,5"
+            Text=""
+            BorderColor="Black"
+            CornerRadius="20"
+            HeightRequest="57"
+            Clicked="selecionarChat">
     </Button>
 </ContentView>

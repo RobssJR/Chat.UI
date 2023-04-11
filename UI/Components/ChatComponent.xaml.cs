@@ -14,6 +14,8 @@ public partial class ChatComponent : ContentView
 
         Chat = chat;
         frmMain.BackgroundColor = Color.FromRgb(rnd.Next(256), rnd.Next(256), rnd.Next(256));
+
+        frmMain.Text = Chat.Name;
     }
 
     private void selecionarChat(object sender, EventArgs e)

@@ -18,7 +18,7 @@ public partial class ChatPage : ContentPage
 
     public ChatPage()
     {
-		InitializeComponent();
+        InitializeComponent();
 
         _clientService = ClientInstance.GetInstance();
         _myManager = Manager.GetInstance();
@@ -31,9 +31,17 @@ public partial class ChatPage : ContentPage
         scrollViewMessages.Content = stackMessage;
     }
 
+    private void CarregarPagina()
+    {
+        RefreshAsync(_myManager.chatSelecionado);
+    }
+
     private void RefreshAsync(ChatModel chat)
     {
         GetChatsAsync();
+
+        if (_myManager.chatSelecionado == null)
+            return;
 
         if (chat.Id == _myManager.chatSelecionado.Id)
             SelecionarChat(chat);
@@ -127,6 +135,8 @@ public partial class ChatPage : ContentPage
 
     private void SelecionarChat(ChatModel chat)
     {
+        scrollViewMessages.Content = new StackLayout();
+
         TCPMessageModel<ChatModel> tcpMessage = new TCPMessageModel<ChatModel>()
         {
             Message = chat,
@@ -136,6 +146,8 @@ public partial class ChatPage : ContentPage
 
         _clientService.Send<ChatModel>(tcpMessage);
         ClientUtil.AwaitResponse();
+
+        tbNameChat.Text = _myManager.chatSelecionado.Name;
 
         if (_myManager.chatSelecionado.Messages == null)
             return;
@@ -158,8 +170,6 @@ public partial class ChatPage : ContentPage
 
             scrollViewMessages.Content = newChat;
         });
-
-        tbNameChat.Text = _myManager.chatSelecionado.Name;
     }
 
     private async void btnAddClient_Clicked(object sender, EventArgs e)
@@ -168,5 +178,14 @@ public partial class ChatPage : ContentPage
             return;
 
         await Navigation.PushAsync(new ChatUserAddPage(_myManager.chatSelecionado));
+    }
+
+    protected override void OnAppearing()
+    {
+        base.OnAppearing();
+        NavigationPage.SetHasBackButton(this, false);
+        NavigationPage.SetHasNavigationBar(this, false);
+
+        CarregarPagina();
     }
 }
