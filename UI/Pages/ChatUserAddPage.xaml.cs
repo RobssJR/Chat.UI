@@ -4,6 +4,9 @@ using Core.Infra.Models.Client;
 using Core.Instances;
 using Core.Models;
 using Core.Models.Geral;
+using Core.Services;
+using System;
+using UI.Services;
 using UI.Singleton;
 
 namespace UI.Pages;
@@ -12,19 +15,32 @@ public partial class ChatUserAddPage : ContentPage
 {
     private ClientInstance _clientInstance;
     private Manager _myManager;
-    private ChatModel _chat;
-	public ChatUserAddPage(ChatModel chat)
+
+	public ChatUserAddPage()
 	{
 		InitializeComponent();
         _myManager = Manager.GetInstance();
         _clientInstance = ClientInstance.GetInstance();
+    }
 
-        List<ClientModel> clients = chat.Users.Where(client => client.Id != _myManager.clientModel.Id).ToList();
+    private async void CarregarPagina()
+    {
+        TCPMessageModel<ChatModel> tcpMessage = new TCPMessageModel<ChatModel>()
+        {
+            Message = _myManager.chatSelecionado,
+            Time = DateTime.Now,
+            Type = TypeMessage.GetChat
+        };
 
+        _clientInstance.Send<ChatModel>(tcpMessage);
+        bool result = await ClientUtil.AwaitResponse();
+
+        if (result == false)
+            return;
+
+        List<ClientModel> clients = _myManager.chatSelecionado.Users.Where(client => client.Id != _myManager.clientModel.Id).ToList();
         lvUsuarios.ItemsSource = clients;
-        _chat = chat;
-
-        lbTitle.Text = chat.Name;
+        lbTitle.Text = _myManager.chatSelecionado.Name;
     }
 
     private void btnAddUser_Clicked(object sender, EventArgs e)
@@ -34,7 +50,7 @@ public partial class ChatUserAddPage : ContentPage
 
         AddUserChatModel addUserChatModel = new AddUserChatModel()
         {
-            Chat = _chat,
+            Chat = _myManager.chatSelecionado,
             Email = tbEmail.Text
         };
 
@@ -46,6 +62,8 @@ public partial class ChatUserAddPage : ContentPage
         };
 
         _clientInstance.Send(messageObj);
+
+        CarregarPagina();
     }
 
     private void btnRemoveUser_Clicked(object sender, EventArgs e)
@@ -55,15 +73,25 @@ public partial class ChatUserAddPage : ContentPage
         if (client == null) 
             return;
 
-        _chat.Users.Remove(client);
+        _myManager.chatSelecionado.Users.Remove(client);
 
         TCPMessageModel<ChatModel> messageObj = new TCPMessageModel<ChatModel>()
         {
             Type = TypeMessage.UpdateChat,
-            Message = _chat,
+            Message = _myManager.chatSelecionado,
             Time = DateTime.Now,
         };
 
         _clientInstance.Send(messageObj);
+
+        CarregarPagina();
+    }
+    protected override void OnAppearing()
+    {
+        base.OnAppearing();
+        NavigationPage.SetHasBackButton(this, false);
+        NavigationPage.SetHasNavigationBar(this, false);
+
+        CarregarPagina();
     }
 }

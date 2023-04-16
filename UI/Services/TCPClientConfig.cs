@@ -63,6 +63,10 @@ namespace UI.Services
                     _myManager.chatSelecionado = messageTcp.Message;
                     _myManager.sucesso = true;
                     break;
+                case TypeMessage.UpdateChat:
+                    messageTcp = Util.JsonUtil.ConvertToObject<TCPMessageModel<ChatModel>>(messageString);
+                    _myManager.RefreshExec(_myManager.chatSelecionado);
+                    break;
                 default:
                     break;
             }

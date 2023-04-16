@@ -145,6 +145,7 @@ public partial class ChatPage : ContentPage
         };
 
         _clientService.Send<ChatModel>(tcpMessage);
+
         ClientUtil.AwaitResponse();
 
         tbNameChat.Text = _myManager.chatSelecionado.Name;
@@ -177,7 +178,7 @@ public partial class ChatPage : ContentPage
         if (_myManager.chatSelecionado == null)
             return;
 
-        await Navigation.PushAsync(new ChatUserAddPage(_myManager.chatSelecionado));
+        await Navigation.PushAsync(new ChatUserAddPage());
     }
 
     protected override void OnAppearing()

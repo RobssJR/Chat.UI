@@ -42,6 +42,15 @@ public partial class ChatCreatePage : ContentPage
 
 			_clientService.Send<ChatModel>(tcpMessage);
 
+            bool result = await ClientUtil.AwaitResponse();
+
+			if (result == false)
+				return;
+            
+			await DisplayAlert("", $"Chat {tbNome.Text} criado", "OK");
+			tbNome.Text = string.Empty;
+			await Navigation.PushAsync(new ChatPage());
+
         } catch (ErrorHandled ex) { await DisplayAlert("", ex.Message, "OK"); }
     }
 }
